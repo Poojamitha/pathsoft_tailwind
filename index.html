@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./CSS/style.css"></link>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <title>IT Solutions for your business</title>
+  </head>
+  <body>
+    <body>
+        <header>
+
+          <!-- Navbar Primary -->
+          <nav id="navbar">
+            <div class="container md:mx-auto px-5">
+              <div class="top_navbar flex justify-between py-2 text-white">
+                <ul class="flex">
+                  <li>
+                    <a href="mailto:mail@example.com">
+                      <i class="far fa-envelope"></i>
+                      <span>mail@example.com</span>
+                    </a>
+                  </li>
+                  <li class="ml-4">
+                    <b>24/7 Support:</b>
+                    <a href="tel:18887771234">1-888-777-1234</a>
+                  </li>
+                </ul>
+                <ul class="flex">
+                  <li class="mr-4">
+                    <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+                  </li>
+                  <li class="mr-4">
+                    <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+                  </li>
+                  <li class="mr-4">
+                    <a href="#"><i class="fab fa-youtube fa-2x"></i></a>
+                  </li>
+                  <li class="mr-4">
+                    <a href="#"><i class="fab fa-linkedin fa-2x"></i></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+          <!-- Navbar Secondary -->
+          <nav id="navbar-top">
+            <div class="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800">
+              <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+                <div class="p-4 flex flex-row items-center justify-between">
+                  <img src="./img/logo-ico.png" alt="" class="mr-2">
+                  <a href="#" class="text-lg font-semibold tracking-widest text-gray-900 rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">PathSoft</a>
+                  <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
+                    <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+                      <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                      <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                    </svg>
+                  </button>
+                </div>
+                <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
+                  <div @click.away="open = false" class="relative" x-data="{ open: false }" style="z-index: 2;">
+                    <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                      <span>Home</span>
+                      <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    </button>
+                    <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48">
+                      <div class="px-2 py-2 bg-white rounded-md shadow dark-mode:bg-gray-800">
+                        <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Home 1</a>
+                        <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Home 2</a>
+                        <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Home 3</a>
+                      </div>
+                    </div>
+                  </div>    
+                  <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">About Us</a>
+                  <div @click.away="open = false" class="relative" x-data="{ open: false }" style="z-index: 1;">
+                    <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                      <span>Services</span>
+                      <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    </button>
+                    <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48">
+                      <div class="px-2 py-2 bg-white rounded-md shadow dark-mode:bg-gray-800">
+                        <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Service 1</a>
+                        <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Service 2</a>
+                        <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Service 3</a>
+                      </div>
+                    </div>
+                  </div>    
+                  <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Contact Us</a>
+                </nav>
+              </div>
+            </div>
+          </nav>
+
+          
+      <div class="carousel relative shadow-2xl bg-white">
+        <div class="carousel-inner relative overflow-hidden w-full">
+          <!--Slide 1-->
+          <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
+          <div class="carousel-item absolute opacity-0" style="height:79vh;">
+            <div class="bg-cover bg-top text-white py-10 px-10 object-fill" style="background-image: url(./img/intro-img1.jpg); height: 79vh;">
+              <div class="container_box">
+                <div class="ml-20 text-left mt-20">
+                  <h1 class="carousel-title text-4xl text-black font-extrabold">IT Solution for <br>Your Business</h1>
+                  <p class="carousel-subtitle mt-6 mb-8 text-black">Since our establishment, we have beendelivering high- <br> quality and sustainable software solutions for corporate <br> business purposes</p>
+                  <a href="#" class="btn">Learn More</a>
+                </div>
+             </div>  
+            </div>
+          </div>
+          <label for="carousel-3" class="prev control-1 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-blue-700 leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
+          <label for="carousel-2" class="next control-1 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-blue-700 leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label>
+          
+          <!--Slide 2-->
+          <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
+          <div class="carousel-item absolute opacity-0" style="height:79vh;">
+            <div class="bg-cover bg-top text-white py-10 px-10 object-fill" style="background-image: url(./img/intro-img2.jpg); height: 79vh;">
+              <div class="container_box">
+                <div class="ml-20 text-left mt-20">
+                  <h1 class="carousel-title text-4xl text-black font-extrabold">IT Solution for <br>Your Business</h1>
+                  <p class="mt-6 mb-8 text-black">Since our establishment, we have beendelivering high- <br> quality and sustainable software solutions for corporate <br> business purposes</p>
+                  <a href="#" class="btn">Learn More</a>
+               </div>
+             </div>  
+            </div>
+          </div>
+          <label for="carousel-1" class="prev control-2 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-blue-700 leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
+          <label for="carousel-3" class="next control-2 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-blue-700 leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label> 
+          
+          <!--Slide 3-->
+          <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">
+          <div class="carousel-item absolute opacity-0" style="height:79vh;">
+            <div class="bg-cover bg-top text-white py-10 px-10 object-fill" style="background-image: url(./img/intro-img3.jpg); height: 79vh;">
+              <div class="container_box">
+                <div class="ml-20 text-left mt-20">
+                  <h1 class="carousel-title text-4xl text-black font-extrabold">IT Solution for <br>Your Business</h1>
+                  <p class="mt-6 mb-8 text-black">Since our establishment, we have beendelivering high- <br> quality and sustainable software solutions for corporate <br> business purposes</p>
+                  <a href="#" class="btn">Learn More</a>
+                </div>
+              </div>  
+            </div>
+          </div>
+          <label for="carousel-2" class="prev control-3 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-blue-700 leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
+          <label for="carousel-1" class="next control-3 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-blue-700 leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label>
+      
+           
+          <!-- Add additional indicators for each slide-->
+          <ol class="carousel-indicators">
+            <li class="inline-block mr-3">
+              <label for="carousel-1" class="carousel-bullet cursor-pointer block text-4xl text-white hover:text-blue-700">•</label>
+            </li>
+            <li class="inline-block mr-3">
+              <label for="carousel-2" class="carousel-bullet cursor-pointer block text-4xl text-white hover:text-blue-700">•</label>
+            </li>
+            <li class="inline-block mr-3">
+              <label for="carousel-3" class="carousel-bullet cursor-pointer block text-4xl text-white hover:text-blue-700">•</label>
+            </li>
+          </ol>
+          
+        </div>
+        </header>
+
+        <main>
+          <!-- Services -->
+          
+          <section id="service" class="mt-20">
+            <div class="container text-center md:mx-auto px-5">
+              <p class="lead_paragraph text-center text-xl">AREAS WHAT WE SERV</p>
+              <h2 class="lead_title text-center text-5xl mt-5">Our Services</h2>
+              <div class="service_grid grid grid-cols-1 gap-10 md:grid-cols-3 text-center my-20 p-2">
+                <div class="card service-1 p-5">
+                  <a href="#">
+                    <i class="fas fa-file-alt fa-4x process-icon">
+                      <div class="process-step">1</div>
+                    </i>
+                    <h3 class="font-bold my-6">Discuss The Project</h3>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Maiores voluptas laborum repellendus dolorum! Harum,
+                      cupiditate.
+                    </p>
+                  </a>
+                </div>
+                <div class="card service-2 p-5">
+                  <a href="#">
+                    <i class="fas fa-object-ungroup fa-4x process-icon">
+                      <div class="process-step">2</div>
+                    </i>
+                    <h3 class="font-bold my-6">UI/UX Planning</h3>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Maiores voluptas laborum repellendus dolorum! Harum,
+                      cupiditate.
+                    </p>
+                  </a>
+                </div>
+                <div class="card service-3 p-5">
+                  <a href="#">
+                    <i class="fas fa-thumbs-up fa-4x process-icon">
+                      <div class="process-step">3</div>
+                    </i>
+                    <h3 class="font-bold my-6">Interaction</h3>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Maiores voluptas laborum repellendus dolorum! Harum,
+                      cupiditate.
+                    </p>
+                  </a>
+                </div>
+              </div>
+              <a href="#" class="btn btn_card"
+                >See All News
+                <span><i class="fas fa-chevron-circle-right"></i></span
+              ></a>
+            </div>
+          </section>
+
+           <!-- REASONS -->
+           <section id="reasons" class="bg-gray-100 mt-20">
+              <div class="container md:mx-auto px-5">
+                  <p class="lead_paragraph text-center text-xl pt-10">SOME REASONS</p>
+                  <h2 class="lead_title text-center text-5xl mt-5">Why Choose Us</h2>
+                  <div class="reasons_grid mb-10 grid grid-cols-1 gap-10 md:grid-cols-3 text-center my-10 p-2">
+                    <div class="p-5">
+                      <div class="reason-step">01</div>
+                      <h3 class="font-bold my-6">High Quality Hardware</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+                        voluptas laborum repellendus dolorum! Harum, cupiditate.
+                      </p>
+                    </div>
+                    <div class="bg-gray-300 p-5">
+                      <div class="reason-step">02</div>
+                      <h3 class="font-bold my-6">Dedicated 24\7 Support</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+                        voluptas laborum repellendus dolorum! Harum, cupiditate.
+                      </p>
+                    </div>
+                    <div class="p-5">
+                      <div class="reason-step">03</div>
+                      <h3 class="font-bold my-6">30-Day Money-back Guarantee</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+                        voluptas laborum repellendus dolorum! Harum, cupiditate.
+                      </p>
+                    </div>
+                    <div class="bg-gray-300 p-5">
+                      <div class="reason-step">04</div>
+                      <h3 class="font-bold my-6">Agile and Fast Working Style</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+                        voluptas laborum repellendus dolorum! Harum, cupiditate.
+                      </p>
+                    </div>
+                    <div class="p-5">
+                      <div class="reason-step">05</div>
+                      <h3 class="font-bold my-6">Some Apps are Free</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+                        voluptas laborum repellendus dolorum! Harum, cupiditate.
+                      </p>
+                    </div>
+                    <div class="bg-gray-300 p-5">
+                      <div class="reason-step">06</div>
+                      <h3 class="font-bold my-6">High Level of Usability</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+                        voluptas laborum repellendus dolorum! Harum, cupiditate.
+                      </p>
+                    </div>
+                  </div>
+              </div>
+            </section>
+
+
+            <!-- latest projects -->
+            <section id="latest_projects">
+              <div class="container md:mx-auto px-5">
+                <p class="lead_paragraph text-center text-xl pt-10">OUR WORKS</p>
+                <h2 class="lead_title text-center text-5xl mt-5">Latest Works</h2>
+                <ul class="nav_project flex justify-center mt-10">
+                  <li class="p-4"><a href="">ALL</a></li>
+                  <li class="p-4"><a href="">MBILE APPS</a></li>
+                  <li class="p-4"><a href="">CUSTOM SOFTWARE</a></li>
+                  <li class="p-4"><a href="">QA & TESTING</a></li>
+                  <li class="p-4"><a href="">UX AND DESIGN</a></li>
+                </ul>
+
+                <div class="all">
+                  <div class="all_grid grid grid-cols-1 md:grid-cols-3 gap-y-10 text-center my-10 p-2 justify-items-center">
+                    <div class="flip-card">
+                      <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          <img src="./img/project-img-1.jpg" alt="Avatar" style="width:300px;height:350px;">
+                        </div>
+                        <div class="flip-card-back">
+                          <div class="mt-10">
+                            <h1 class="font-bold text-2xl">MPlanner</h1> 
+                            <p>We work hard on every app to deliver top-notch features with great UI that you won’t find anywhere else.</p> 
+                            <i class="fas fa-chevron-circle-right fa-2x mt-2"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="flip-card">
+                      <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          <img src="./img/project-img-2.jpg" alt="Avatar" style="width:300px;height:350px;">
+                        </div>
+                        <div class="flip-card-back">
+                          <div class="mt-10">
+                            <h1 class="font-bold text-2xl">WeatherNow</h1> 
+                            <p>We work hard on every app to deliver top-notch features with great UI that you won’t find anywhere else.</p> 
+                            <i class="fas fa-chevron-circle-right fa-2x mt-2"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="flip-card">
+                      <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          <img src="./img/project-img-3.jpg" alt="Avatar" style="width:300px;height:350px;">
+                        </div>
+                        <div class="flip-card-back">
+                          <div class="mt-10">
+                            <h1 class="font-bold text-2xl">Langer Messenger</h1> 
+                            <p>We work hard on every app to deliver top-notch features with great UI that you won’t find anywhere else.</p> 
+                            <i class="fas fa-chevron-circle-right fa-2x mt-2"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="flip-card">
+                      <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          <img src="./img/project-img-4.jpg" alt="Avatar" style="width:300px;height:350px;">
+                        </div>
+                        <div class="flip-card-back">
+                          <div class="mt-10">
+                            <h1 class="font-bold text-2xl">Mobile Finance</h1> 
+                            <p>We work hard on every app to deliver top-notch features with great UI that you won’t find anywhere else.</p> 
+                            <i class="fas fa-chevron-circle-right fa-2x mt-2"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="flip-card">
+                      <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          <img src="./img/project-img-5.jpg" alt="Avatar" style="width:300px;height:350px;">
+                        </div>
+                        <div class="flip-card-back">
+                          <div class="mt-10">
+                            <h1 class="font-bold text-2xl">RaptCash</h1> 
+                            <p>We work hard on every app to deliver top-notch features with great UI that you won’t find anywhere else.</p> 
+                            <i class="fas fa-chevron-circle-right fa-2x mt-2"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="flip-card">
+                      <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          <img src="./img/project-img-6.jpg" alt="Avatar" style="width:300px;height:350px;">
+                        </div>
+                        <div class="flip-card-back">
+                          <div class="mt-10">
+                            <h1 class="font-bold text-2xl">Search by photo</h1> 
+                            <p>We work hard on every app to deliver top-notch features with great UI that you won’t find anywhere else.</p> 
+                            <i class="fas fa-chevron-circle-right fa-2x mt-2"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+
+            <!-- Teams -->
+
+            <section id="team" class="mt-20">
+              <div class="container md:mx-auto px-5">
+                <p class="lead_paragraph text-center text-xl pt-10">WHO WE ARE</p>
+                <h2 class="lead_title text-center text-5xl mt-5 capitalize">meet the team</h2>
+                <div class="team_grid grid grid-cols-1 gap-10 md:grid-cols-4 text-center my-10 p-2">
+                  <div class="card p-5 bg-gray-100">
+                    <img
+                      src="./img/team-img-1.jpg"
+                      alt="Avatar"
+                      style="width: 100%"
+                    />
+                    <h4 class="mt-4"><b>Mary Lee</b></h4>
+                    <p>Software Developer</p>
+                  </div>
+                  <div class="card p-5 bg-gray-100">
+                    <img
+                      src="./img/team-img-2.jpg"
+                      alt="Avatar"
+                      style="width: 100%"
+                    />
+                    <h4 class="mt-4"><b>Ryan Wilson</b></h4>
+                    <p>CEO</p>
+                  </div>
+                  <div class="card p-5 bg-gray-100">
+                    <img
+                      src="./img/team-img-3.jpg"
+                      alt="Avatar"
+                      style="width: 100%"
+                    />
+                    <h4 class="mt-4"><b>Sam Robinson</b></h4>
+                    <p>Senior Developer</p>
+                  </div>
+                  <div class="card p-5 bg-gray-100">
+                    <img
+                      src="./img/team-img-4.jpg"
+                      alt="Avatar"
+                      style="width: 100%"
+                    />
+                    <h4 class="mt-4"><b>Jill Peterson</b></h4>
+                    <p>Senior Developer</p>
+                  </div>
+                </div>
+              </div>
+          </section>
+          <!-- Testimonials -->
+
+          <section id="testimonials" class="mt-20">
+            <div class="container text-center md:mx-auto px-5">
+              <p class="lead_paragraph text-center text-xl pt-10">REVIEWS FROM OUR CLIENTS</p>
+              <h2 class="lead_title text-center text-5xl mt-5">What People Say</h2>
+              <div class="testimonials_grid grid grid-cols-1 gap-10 md:grid-cols-3 text-center my-20 p-2">
+                <div class="testimonial-1 card_testimonial p-5">
+                  <div class="card_header flex justify-evenly">
+                    <div>
+                      <img src="./img/auth-img-1.jpg" alt="" />
+                    </div>
+                    <div class="text-left">
+                      <h3 class="font-bold">Ctherine Green</h3>
+                      <p>Regular Client</p>
+                    </div>
+                  </div>
+                  <div class="card_bottom mt-10 text-center">
+                    PathSoft offers a high caliber of resources skilled in Microsoft
+                    Azure.NET, mobile and Quality Assurance. They became our true
+                    business partners over the past three years.
+                  </div>
+                </div>
+                <div class="testimonial-2 card_testimonial p-5">
+                  <div class="card_header flex justify-evenly">
+                    <div>
+                      <img src="./img/auth-img-2.jpg" alt="" />
+                    </div>
+                    <div class="text-left">
+                      <h3 class="font-bold">Rupert Wood</h3>
+                      <p>Regular Client</p>
+                    </div>
+                  </div>
+                  <div class="card_bottom mt-10 text-center">
+                    PathSoft offers a high caliber of resources skilled in Microsoft
+                    Azure.NET, mobile and Quality Assurance. They became our true
+                    business partners over the past three years.
+                  </div>
+                </div>
+                <div class="testimonial-3 card_testimonial p-5">
+                  <div class="card_header flex justify-evenly">
+                    <div>
+                      <img src="./img/auth-img-3.jpg" alt="" />
+                    </div>
+                    <div class="text-left">
+                      <h3 class="font-bold">Samantha White</h3>
+                      <p>Regular Client</p>
+                    </div>
+                  </div>
+                  <div class="card_bottom mt-10 text-center">
+                    PathSoft offers a high caliber of resources skilled in Microsoft
+                    Azure.NET, mobile and Quality Assurance. They became our true
+                    business partners over the past three years.
+                  </div>
+                </div>
+              </div>
+              <a href="#" class="btn btn_card"
+                >See All Reviews
+                <span><i class="fas fa-chevron-circle-right"></i></span
+              ></a>
+            </div>
+      </section>
+    </main>
+
+    <footer id="main-footer" class="py-2 mt-20">
+      <div class="container md:mx-auto px-5">
+        <div class="footer-container">
+          <div class="item1">
+            <a href="/" class="logo" style="display: flex">
+              <img src="/img/logo-ico.png" alt="" />
+              <span class="logo_title ml-3">pathsoft</span>
+            </a>
+            <p class="mt-10">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit
+              deserunt assumenda enim non? Ratione ipsum voluptates fuga eos earum
+              vitae.
+            </p>
+          </div>
+          <div class="item2">
+            <h3>Menu</h3>
+            <ul class="list">
+              <li class="mt-5"><a href="#">About Us</a></li>
+              <li class="mt-2"><a href="#">Services</a></li>
+              <li class="mt-2"><a href="#">About Us</a></li>
+              <li class="mt-2"><a href="#">Pricing</a></li>
+              <li class="mt-2"><a href="#">Blog</a></li>
+              <li class="mt-2"><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="item3">
+            <h3>What We Offer</h3>
+            <ul class="list">
+              <li class="mt-5"><a href="#">DB Management</a></li>
+              <li class="mt-2"><a href="#">IOS/MacOS</a></li>
+              <li class="mt-2"><a href="#">Android Apps</a></li>
+              <li class="mt-2"><a href="#">Windows Apps</a></li>
+              <li class="mt-2"><a href="#">UX & UI</a></li>
+            </ul>
+          </div>
+          <div class="item4">
+            <ul class="list">
+              <li><a href="#">301 S Irving Blvd Los Angeles, CA 90020</a></li>
+              <li class="mt-2">
+                <a href="">+1 323-913-4688, +1 323-888-4554</a>
+              </li>
+              <li class="mt-2"><a href="#">mail@example.com</a></li>
+              <li class="my-3"><a href="#">Subscribe</a></li>
+            </ul>
+            <form name="contact" method="POST" data-netlify="true">
+              <input class=".email-text" type="email" name="email" placeholder="Enter Email..." />
+              <input type="submit" value="Subscribe" class="btn mt-3" />
+            </form>
+          </div>
+          <div class="item5">
+            <p>Copyright &copy; 2021, All Rights Reserved</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
